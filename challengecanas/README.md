@@ -7,7 +7,7 @@ Solucion reto Wolox utilizando Spring Boot con Apache Camel.
 
 ### Iniciar aplicación
 
-Para iniciar la aplicación uicarse dentro del directorio raiz, luego ejecutar el comando Maven:
+Para iniciar la aplicación ubicarse dentro del directorio raiz, luego ejecutar el comando Maven:
 
     mvn spring-boot:run
 
