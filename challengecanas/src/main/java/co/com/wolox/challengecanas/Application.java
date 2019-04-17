@@ -15,9 +15,11 @@
  */
 package co.com.wolox.challengecanas;
 
-import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.servlet.CamelHttpTransportServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 
 /**
@@ -25,17 +27,18 @@ import org.springframework.context.annotation.ImportResource;
  */
 @SpringBootApplication
 @ImportResource({"classpath:spring/camel-context.xml"})
-public class Application extends RouteBuilder {
+public class Application {
 
     // must have a main method spring-boot can run
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Override
-    public void configure() throws Exception {
-        from("timer://foo?period=5000")
-            .setBody().constant("Hello World")
-            .log(">>> ${body}");
+
+    @Bean
+    public ServletRegistrationBean servletRegistrationBean() {
+    	ServletRegistrationBean register = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/rest/*");
+    	register.setName("CamelServlet");
+    	return register;
     }
 }
