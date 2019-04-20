@@ -31,6 +31,7 @@ import co.com.wolox.challengecanas.dto.User;
 import co.com.wolox.challengecanas.proccessor.AlbumAccesProccessor;
 import co.com.wolox.challengecanas.service.AlbumUserService;
 import co.com.wolox.challengecanas.service.UserService;
+import co.com.wolox.challengecanas.util.AppConstants;
 
 @Component
 @ContextName("challengecanas")
@@ -76,51 +77,51 @@ public class WoloxRoute extends RouteBuilder {
 				.code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron albumes").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.toD("http4://jsonplaceholder.typicode.com/albums?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.toD(AppConstants.URL_ALBUMS).unmarshal(jacksonDf).endRest()
 
 				.get("/users/").description("Retorna todos los usuarios").outType(User[].class).responseMessage()
 				.code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron usuarios").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.toD("http4://jsonplaceholder.typicode.com/users?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.toD(AppConstants.URL_USERS).unmarshal(jacksonDf).endRest()
 
 				.get("/photos/").description("Retorna todos las fotografias").outType(Photo[].class).responseMessage()
 				.code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron fotografias").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.toD("http4://jsonplaceholder.typicode.com/photos?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.toD(AppConstants.URL_PHOTOS).unmarshal(jacksonDf).endRest()
 
 				.get("/comments/").description("Retorna todos los comentarios").outType(Comment[].class)
 				.responseMessage().code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron fotografias").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.toD("http4://jsonplaceholder.typicode.com/comments?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.toD(AppConstants.URL_COMMENTS).unmarshal(jacksonDf).endRest()
 
 				.get("/posts/").description("Retorna todos los comentarios").outType(Post[].class).responseMessage()
 				.code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron fotografias").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.toD("http4://jsonplaceholder.typicode.com/posts?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.toD(AppConstants.URL_POST).unmarshal(jacksonDf).endRest()
 
 				.get("/users/{id}").description("Retorna un usuario segun ID").outType(User.class).param().name("id")
 				.type(RestParamType.path).description("ID").dataType("integer").endParam().responseMessage().code(200)
 				.message("OK").endResponseMessage().responseMessage().code(404).message("No se encontraron fotografias")
 				.endResponseMessage().responseMessage().code(500).message("Ocurrio un error generando la consulta")
 				.endResponseMessage().route().streamCaching()
-				.to("http4://jsonplaceholder.typicode.com/?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.to(AppConstants.URL_SERVER).unmarshal(jacksonDf).endRest()
 
 				.get("/photos/{id}").description("Retorna una fotografia segun ID").outType(Photo.class).param()
 				.name("id").type(RestParamType.path).description("ID").dataType("integer").endParam().responseMessage()
 				.code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron fotografias").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.to("http4://jsonplaceholder.typicode.com/?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.to(AppConstants.URL_SERVER).unmarshal(jacksonDf).endRest()
 
 				.get("/albums/{id}").description("Retorna un album segun ID").outType(Album.class).param().name("id")
 				.type(RestParamType.path).description("ID").dataType("integer").endParam().responseMessage().code(200)
 				.message("OK").endResponseMessage().responseMessage().code(404).message("No se encontraron fotografias")
 				.endResponseMessage().responseMessage().code(500).message("Ocurrio un error generando la consulta")
-				.endResponseMessage().route().to("http4://jsonplaceholder.typicode.com/?bridgeEndpoint=true")
+				.endResponseMessage().route().to(AppConstants.URL_SERVER)
 				.unmarshal(jacksonDf).endRest()
 
 				.get("/comments/{id}").description("Retorna un comentario segun ID").outType(Comment.class).param()
@@ -128,14 +129,14 @@ public class WoloxRoute extends RouteBuilder {
 				.code(200).message("OK").endResponseMessage().responseMessage().code(404)
 				.message("No se encontraron fotografias").endResponseMessage().responseMessage().code(500)
 				.message("Ocurrio un error generando la consulta").endResponseMessage().route().streamCaching()
-				.to("http4://jsonplaceholder.typicode.com/?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.to(AppConstants.URL_SERVER).unmarshal(jacksonDf).endRest()
 
 				.get("/posts/{id}").description("Retorna un comentario segun ID").outType(Post.class).param().name("id")
 				.type(RestParamType.path).description("ID").dataType("integer").endParam().responseMessage().code(200)
 				.message("OK").endResponseMessage().responseMessage().code(404).message("No se encontraron fotografias")
 				.endResponseMessage().responseMessage().code(500).message("Ocurrio un error generando la consulta")
 				.endResponseMessage().route().streamCaching()
-				.to("http4://jsonplaceholder.typicode.com/?bridgeEndpoint=true").unmarshal(jacksonDf).endRest()
+				.to(AppConstants.URL_SERVER).unmarshal(jacksonDf).endRest()
 
 				.put("/albumuser/").description("Permite actualizar el permiso de un usuario en un album")
 				.type(AlbumUser.class).responseMessage().code(200).message("OK").endResponseMessage().responseMessage()
@@ -196,10 +197,10 @@ public class WoloxRoute extends RouteBuilder {
 		from("direct:userid").to("rest:get:rest/users/{iduser}").unmarshal(jacksonDf).end();
 
 		from("direct:postbyname").setHeader(Exchange.HTTP_QUERY, simple("name=${in.headers.name}"))
-				.to("http4://jsonplaceholder.typicode.com/comments?bridgeEndpoint=true").unmarshal(jacksonDf).end();
+				.to(AppConstants.URL_COMMENTS).unmarshal(jacksonDf).end();
 
 		from("direct:postbyuser").setHeader(Exchange.HTTP_QUERY, simple("userId=${in.headers.user}"))
-				.to("http4://jsonplaceholder.typicode.com/posts?bridgeEndpoint=true").unmarshal(jacksonListDf)
+				.to(AppConstants.URL_POST).unmarshal(jacksonListDf)
 				.process(
 
 						new Processor() {
@@ -216,7 +217,7 @@ public class WoloxRoute extends RouteBuilder {
 									if (contadorUris++ > 0) {
 										uris += ",";
 									}
-									uris += "http4://jsonplaceholder.typicode.com/comments?postId=" + post.getId();
+									uris += AppConstants.URL_COMMENTS + post.getId();
 
 								}
 
