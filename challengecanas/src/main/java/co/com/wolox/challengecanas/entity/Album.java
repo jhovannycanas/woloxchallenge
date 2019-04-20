@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "album")
 public class Album {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
@@ -56,4 +57,10 @@ public class Album {
 	public void setOwnerRestId(Long ownerRestId) {
 		this.ownerRestId = ownerRestId;
 	}
+
+	@Override
+	public String toString() {
+		return "Album [id=" + id + ", restId=" + restId + ", ownerRestId=" + ownerRestId + ", title=" + title + "]";
+	}
+	
 }

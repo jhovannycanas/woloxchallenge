@@ -69,4 +69,11 @@ public class User {
 	public void setRestId(Long restId) {
 		this.restId = restId;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", restId=" + restId + ", name=" + name + ", userName=" + userName + ", email="
+				+ email + "]";
+	}
+	
 }

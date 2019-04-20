@@ -26,4 +26,28 @@ public class Album {
 	@JsonProperty("title")
 	private String title;
 
+	public Long getRestId() {
+		return restId;
+	}
+
+	public void setRestId(Long restId) {
+		this.restId = restId;
+	}
+
+	public Long getOwnerRestId() {
+		return ownerRestId;
+	}
+
+	public void setOwnerRestId(Long ownerRestId) {
+		this.ownerRestId = ownerRestId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 }

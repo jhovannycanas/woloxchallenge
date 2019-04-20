@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 			+ "AND T.accesLevel=:accessLevelId")
 	public List<User> findUserByAlbumAndAccess(@Param("albumId") Long albumId, 
 			@Param("accessLevelId") AccessLevel accessLevel);
+	
+	public User findByRestId(Long restId);
 }

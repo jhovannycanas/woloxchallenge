@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+
 @Entity
 @Table(name = "albumuser", uniqueConstraints = {@UniqueConstraint(columnNames = {"album","user"})})
 public class AlbumUser {
@@ -61,12 +62,22 @@ public class AlbumUser {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+
+	public AlbumUser() {
+		super();
+	}
 
 	public AlbumUser(Album album, User user, AccessLevel accesLevel) {
 		super();
 		this.album = album;
 		this.user = user;
 		this.accesLevel = accesLevel;
+	}
+
+	@Override
+	public String toString() {
+		return "AlbumUser [id=" + id + ", album=" + album + ", user=" + user + ", accesLevel=" + accesLevel + "]";
 	}
 	
 }
