@@ -18,23 +18,31 @@ Para iniciar la aplicación ubicarse dentro del directorio raiz, luego ejecutar 
 ### Rutas
 
 http://localhost:8080/rest/albums/
+
 http://localhost:8080/rest/albums/{id}
 
-http://localhost:8080/rest/albumuser/ post
-http://localhost:8080/rest/albumuser/ put
+http://localhost:8080/rest/albumuser/ 
+
+http://localhost:8080/rest/albumuser/
 
 http://localhost:8080/rest/comments/
+
 http://localhost:8080/rest/comments/search?user={user}&id={id}
+
 http://localhost:8080/rest/comments/4
 
 http://localhost:8080/rest/photos/
+
 http://localhost:8080/rest/photos/{id}
 
 http://localhost:8080/rest/posts/
+
 http://localhost:8080/rest/posts/{id}
 
 http://localhost:8080/rest/users/
+
 http://localhost:8080/rest/users/accesslevel/{idaccess}/album/{idalbum}
+
 http://localhost:8080/rest/users/{id}
 
 ### Pruebas 
