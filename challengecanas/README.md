@@ -29,7 +29,7 @@ http://localhost:8080/rest/comments/
 
 http://localhost:8080/rest/comments/search?user={user}&id={id}
 
-http://localhost:8080/rest/comments/4
+http://localhost:8080/rest/comments/{id}
 
 http://localhost:8080/rest/photos/
 
