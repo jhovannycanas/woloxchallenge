@@ -41,9 +41,7 @@ http://localhost:8080/rest/users/{id}
 
 La documentacion se encuentra disponible en Swagger disponible en el siguiente enlace: http://localhost:8080/#
 
-![Screenshot]
-----
-
-
+![Screenshot](https://github.com/jhovannycanas/woloxchallenge/blob/master/challengecanas/swagger_ui_wolox.png)
+---
 
 Para visualizar las diferentes rutas ofrecidas por el servicio, por favor consultar la documentación del servicio generada en <a href="https://swagger.io/">Swagger<a>.
